@@ -1,6 +1,6 @@
-/* ==========================
-   GOOGLE RESET
-========================== */
+/* ===========================
+   RESET
+=========================== */
 
 *{
     margin:0;
@@ -9,84 +9,75 @@
 }
 
 body{
-
-    overflow:hidden;
-    background:#000;
     font-family:'Poppins',sans-serif;
-    color:white;
-    height:100vh;
+    background:#000;
+    overflow:hidden;
+    color:#fff;
 }
 
-/* ==========================
+/* ===========================
    BACKGROUND
-========================== */
+=========================== */
 
 .background{
-
     position:fixed;
-    width:100%;
-    height:100%;
+    inset:0;
     z-index:-10;
-
+    background:linear-gradient(to bottom,#000,#120010);
 }
 
-/* ==========================
+/* ===========================
    STARS
-========================== */
+=========================== */
 
 .stars{
-
     position:absolute;
     width:100%;
     height:100%;
+
     background-image:
-    radial-gradient(#ff4d6d 1px, transparent 1px),
-    radial-gradient(#ffb6c1 1px, transparent 1px);
+    radial-gradient(#ffffff 1px,transparent 1px),
+    radial-gradient(#ff7aa8 1px,transparent 1px);
 
-    background-size:80px 80px;
-    background-position:0 0,40px 40px;
-
-    animation:twinkle 5s infinite alternate;
+    background-size:70px 70px;
+    background-position:0 0,35px 35px;
 
     opacity:.45;
 
+    animation:twinkle 5s infinite alternate;
 }
 
 @keyframes twinkle{
 
     from{
-
         opacity:.2;
-
     }
 
     to{
-
         opacity:.8;
-
     }
 
 }
 
-/* ==========================
+/* ===========================
    PETALS
-========================== */
+=========================== */
 
 .petals{
-
     position:absolute;
     width:100%;
     height:100%;
     overflow:hidden;
-
 }
 
 .petals::before,
 .petals::after{
 
     content:"🌸";
+
     position:absolute;
-    font-size:28px;
+
+    font-size:30px;
 
     animation:petalFall 12s linear infinite;
 
@@ -94,13 +85,14 @@ body{
 
 .petals::before{
 
-    left:20%;
+    left:18%;
 
 }
 
 .petals::after{
 
-    left:75%;
+    left:72%;
+
     animation-delay:5s;
 
 }
@@ -108,24 +100,19 @@ body{
 @keyframes petalFall{
 
     from{
-
         transform:translateY(-120px) rotate(0deg);
-
     }
 
     to{
-
         transform:translateY(120vh) rotate(360deg);
-
     }
 
 }
+/* ===========================
+   MAIN CONTAINER
+=========================== */
 
-/* ==========================
-   MAIN
-========================== */
-
-main{
+.container{
 
     width:100%;
     height:100vh;
@@ -133,398 +120,183 @@ main{
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
+
+    position:relative;
+
+    padding:20px;
 
 }
 
-/* ==========================
-   TYPING
-========================== */
 
-.typing-box{
+/* ===========================
+   GLASS CARD
+=========================== */
+
+.card{
 
     width:90%;
-    max-width:700px;
+    max-width:420px;
+
+    padding:35px 25px;
 
     text-align:center;
 
-}
+    background:rgba(255,255,255,0.08);
 
-#typing{
+    backdrop-filter:blur(12px);
 
-    font-size:34px;
-    color:#ff8fab;
+    border:1px solid rgba(255,255,255,0.2);
 
-    line-height:1.8;
-
-    font-weight:500;
-
-    min-height:260px;
-
-    text-shadow:
-    0 0 10px #ff4d6d,
-    0 0 20px #ff4d6d;
-
-}
-
-/* ==========================
-   SCRAPBOOK
-========================== */
-
-.hidden{
-
-    display:none;
-
-}
-
-.scrapbook{
-
-    margin-top:40px;
-
-    width:260px;
-    height:360px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-}
-
-.scrapbook:hover{
-
-    transform:
-    translateY(-12px)
-    scale(1.05);
-
-}
-
-.cover{
-
-    width:100%;
-    height:100%;
-
-    background:#0b0b0b;
-
-    border:2px solid #ff4d6d;
-
-    border-radius:20px;
+    border-radius:25px;
 
     box-shadow:
-    0 0 25px rgba(255,77,109,.6),
-    inset 0 0 25px rgba(255,182,193,.15);
+    0 0 30px rgba(255,105,180,.25);
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
+    animation:cardPop 1s ease;
 
 }
 
-/* ==========================
-   HEART
-========================== */
 
-.heart{
-
-    font-size:70px;
-
-    animation:heartbeat 1.4s infinite;
-
-}
-
-@keyframes heartbeat{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.15);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-/* ==========================
-   TITLE
-========================== */
-
-.cover h1{
-
-    margin-top:20px;
-
-    font-family:'Great Vibes',cursive;
-
-    color:#ff4d6d;
-
-    font-size:48px;
-
-}
-
-.cover p{
-
-    margin-top:10px;
-
-    color:#ffb6c1;
-
-}
-
-.click-text{
-
-    margin-top:45px;
-
-    color:#ff4d6d;
-
-    animation:blink 1.5s infinite;
-
-}
-
-@keyframes blink{
-
-    50%{
-
-        opacity:.35;
-
-    }
-
-}
-
-/* ==========================
-   SPARKLES
-========================== */
-
-.sparkles{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    pointer-events:none;
-
-}
-
-.sparkles span{
-
-    position:absolute;
-
-    width:5px;
-
-    height:5px;
-
-    background:#ff4d6d;
-
-    border-radius:50%;
-
-    animation:sparkle 3s infinite;
-
-}
-
-.sparkles span:nth-child(1){
-
-    top:15%;
-    left:20%;
-
-}
-
-.sparkles span:nth-child(2){
-
-    top:70%;
-    left:30%;
-
-}
-
-.sparkles span:nth-child(3){
-
-    top:35%;
-    left:80%;
-
-}
-
-.sparkles span:nth-child(4){
-
-    top:60%;
-    left:75%;
-
-}
-
-.sparkles span:nth-child(5){
-
-    top:18%;
-    left:60%;
-
-}
-
-.sparkles span:nth-child(6){
-
-    top:82%;
-    left:50%;
-
-}
-
-@keyframes sparkle{
-
-    0%{
-
-        transform:scale(.3);
-        opacity:.2;
-
-    }
-
-    50%{
-
-        transform:scale(1.6);
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:scale(.3);
-        opacity:.2;
-
-    }
-
-}
-
-/* ==========================
-   NOTE
-========================== */
-
-#hiddenNote{
-
-    position:absolute;
-
-    bottom:35px;
-
-    width:100%;
-
-    text-align:center;
-
-    color:#ffb6c1;
-
-    opacity:0;
-
-    transition:1s;
-
-    font-size:18px;
-
-    line-height:1.7;
-
-}
-
-/* ==========================
-   FADE
-========================== */
-
-#fade{
-
-    position:fixed;
-
-    width:100%;
-
-    height:100%;
-
-    background:black;
-
-    top:0;
-    left:0;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:1s;
-
-}
-
-.showBook{
-
-    animation: appear 1.3s ease;
-
-}
-
-@keyframes appear{
+@keyframes cardPop{
 
     from{
 
+        transform:scale(.7);
         opacity:0;
-        transform:translateY(40px) scale(.9);
 
     }
 
     to{
 
+        transform:scale(1);
         opacity:1;
-        transform:translateY(0) scale(1);
 
     }
 
 }
+
+
 /* ===========================
-   OPEN HEART BUTTON
+   TITLES
 =========================== */
 
-.openBtn{
+h1{
 
-    display:inline-block;
+    font-size:32px;
 
-    margin-top:40px;
+    color:#ffb6d9;
 
-    padding:18px 45px;
+    text-shadow:
+    0 0 10px #ff69b4,
+    0 0 20px #ff1493;
 
-    background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+    margin-bottom:15px;
+
+}
+
+
+h2{
+
+    font-size:24px;
 
     color:#fff;
 
-    font-size:22px;
+    margin-bottom:15px;
 
-    font-weight:600;
+}
 
-    text-decoration:none;
+
+p{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    color:#ffd9e8;
+
+}
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+
+    margin-top:25px;
+
+    padding:12px 30px;
 
     border:none;
 
-    border-radius:50px;
+    border-radius:30px;
+
+    background:linear-gradient(
+    45deg,
+    #ff4f9a,
+    #b56cff
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-family:'Poppins',sans-serif;
 
     cursor:pointer;
 
     box-shadow:
-    0 0 20px rgba(255,77,109,.6),
-    0 0 40px rgba(255,143,171,.3);
+    0 0 15px rgba(255,105,180,.7);
 
-    transition:.35s ease;
-
-    animation:buttonFloat 2.5s ease-in-out infinite;
+    transition:.3s;
 
 }
 
-.openBtn:hover{
+
+button:hover{
 
     transform:scale(1.08);
 
     box-shadow:
-    0 0 25px rgba(255,77,109,.8),
-    0 0 55px rgba(255,143,171,.6);
+    0 0 25px #ff69b4;
 
 }
 
-@keyframes buttonFloat{
 
-    0%{
+button:active{
+
+    transform:scale(.95);
+
+}
+
+
+/* ===========================
+   IMAGES
+=========================== */
+
+.photo{
+
+    width:200px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid #ffb6d9;
+
+    box-shadow:
+    0 0 25px #ff69b4;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+
+@keyframes float{
+
+    0%,100%{
 
         transform:translateY(0);
 
@@ -532,13 +304,275 @@ main{
 
     50%{
 
-        transform:translateY(-8px);
+        transform:translateY(-15px);
 
     }
 
-    100%{
+}
+/* ===========================
+   EMOJI / CHARACTER ANIMATION
+=========================== */
+
+.character{
+
+    font-size:80px;
+
+    display:inline-block;
+
+    animation:bounce 2s infinite;
+
+    cursor:pointer;
+
+    filter:drop-shadow(0 0 15px #ff69b4);
+
+}
+
+
+@keyframes bounce{
+
+    0%,100%{
 
         transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+}
+
+
+/* ===========================
+   TYPING TEXT
+=========================== */
+
+.typing{
+
+    min-height:80px;
+
+    font-size:18px;
+
+    color:#ffe4f0;
+
+    border-right:2px solid #ff69b4;
+
+    white-space:normal;
+
+    overflow:hidden;
+
+    animation:cursorBlink .8s infinite;
+
+}
+
+
+@keyframes cursorBlink{
+
+    50%{
+
+        border-color:transparent;
+
+    }
+
+}
+
+
+/* ===========================
+   CAKE SECTION
+=========================== */
+
+.cake{
+
+    font-size:90px;
+
+    display:inline-block;
+
+    animation:cakeFloat 3s ease-in-out infinite;
+
+}
+
+
+@keyframes cakeFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+/* ===========================
+   CANDLE EFFECT
+=========================== */
+
+.candle{
+
+    display:inline-block;
+
+    font-size:35px;
+
+    animation:flame 1s infinite alternate;
+
+}
+
+
+@keyframes flame{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+
+.blown .candle{
+
+    animation:none;
+
+    opacity:.3;
+
+    filter:grayscale(1);
+
+}
+
+
+/* ===========================
+   PAGE TRANSITION
+=========================== */
+
+.fade-out{
+
+    animation:fadeOut .8s forwards;
+
+}
+
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ===========================
+   LETTER PAPER STYLE
+=========================== */
+
+.letter{
+
+    background:#fff0f5;
+
+    color:#5a2035;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    width:90%;
+
+    max-width:380px;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    box-shadow:
+    0 0 25px rgba(255,182,193,.5);
+
+    transform:rotate(-2deg);
+
+    animation:paperOpen 1s ease;
+
+}
+
+
+@keyframes paperOpen{
+
+    from{
+
+        transform:scale(.5) rotate(10deg);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1) rotate(-2deg);
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* ===========================
+   HEART PARTICLES
+=========================== */
+
+.heart{
+
+    position:absolute;
+
+    font-size:20px;
+
+    animation:heartRise 5s linear infinite;
+
+}
+
+
+@keyframes heartRise{
+
+    from{
+
+        transform:translateY(100vh) scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-20vh) scale(1.2);
+
+        opacity:0;
 
     }
 
