@@ -1,54 +1,54 @@
-// ===============================
-// PAGE 5 - ONE NIGHT, JUST US
-// ===============================
+/* ==============================
+   INTRO TYPING
+============================== */
 
-// ---------- Typing Intro ----------
-
-const titleText = "One Night, Just Us...";
-const subtitleText =
-"If I could pause one moment forever... I'd choose a quiet night with you. 🌙❤️";
+const title = "One Night, Just Us 🌙";
+const text =
+"Even ordinary nights become magical when you're beside me...";
 
 let t = 0;
-let s = 0;
+let p = 0;
 
-const title = document.getElementById("title");
-const subtitle = document.getElementById("subtitle");
+const titleEl = document.getElementById("title");
+const textEl = document.getElementById("subtitle");
 
 function typeTitle(){
 
-    if(t < titleText.length){
+    if(t < title.length){
 
-        title.innerHTML += titleText.charAt(t);
+        titleEl.innerHTML += title.charAt(t);
 
         t++;
 
-        setTimeout(typeTitle,80);
+        setTimeout(typeTitle,70);
 
-    }else{
+    }
 
-        setTimeout(typeSubtitle,500);
+    else{
+
+        typeText();
 
     }
 
 }
 
-function typeSubtitle(){
+function typeText(){
 
-    if(s < subtitleText.length){
+    if(p < text.length){
 
-        subtitle.innerHTML += subtitleText.charAt(s);
+        textEl.innerHTML += text.charAt(p);
 
-        s++;
+        p++;
 
-        setTimeout(typeSubtitle,35);
+        setTimeout(typeText,35);
 
-    }else{
+    }
 
-        setTimeout(()=>{
+    else{
 
-            document.getElementById("rooftop").classList.remove("hidden");
+        document.getElementById("rooftop").classList.remove("hidden");
 
-        },700);
+        document.getElementById("messageCard").classList.remove("hidden");
 
     }
 
@@ -56,162 +56,147 @@ function typeSubtitle(){
 
 typeTitle();
 
+/* ==============================
+   STAR MESSAGES
+============================== */
 
-// ---------- Wishes ----------
+const messages=[
 
-const wishes=[
+"You make me feel safe. ❤️",
 
-"🌸 Thank you for making my world brighter.",
+"You became my favourite person. 🌸",
 
-"💖 You always find a way to make me smile.",
+"I still smile when I remember our first chat. ✨",
 
-"🌙 I hope we keep making memories together.",
+"Thank you for staying with me. 🤍",
 
-"💌 You're my favorite notification.",
-
-"✨ I'll always be cheering for you.",
-
-"🤍 You make ordinary moments feel extraordinary.",
-
-"❤️ I'll choose you again and again."
+"Let's keep making beautiful memories together. 🌙"
 
 ];
 
-function showWish(number){
+let opened=0;
 
-    const box=document.getElementById("wishBox");
+function showStar(num){
 
-    document.getElementById("wishTitle").innerHTML=
-    "Star "+number;
+    document.getElementById("messageText").innerHTML=messages[num-1];
 
-    document.getElementById("wishText").innerHTML=
-    wishes[number-1];
+    const star=document.querySelector(".s"+num);
 
-    box.style.display="block";
+    star.style.color="#ffd700";
 
-    setTimeout(()=>{
+    star.style.transform="scale(1.4)";
 
-        box.style.display="none";
+    star.style.pointerEvents="none";
 
-    },5000);
+    opened++;
 
-}
+    createHearts();
 
+    if(opened===5){
 
-// ---------- Secret Star ----------
-
-function secretWish(){
-
-    const star=document.getElementById("shootingStar");
-
-    star.style.display="block";
-
-    star.style.left="85%";
-    star.style.top="10%";
-
-    star.animate([
-
-        {
-            transform:"translate(0,0)"
-        },
-
-        {
-            transform:"translate(-900px,400px)"
-        }
-
-    ],{
-
-        duration:1200
-
-    });
-
-    setTimeout(()=>{
-
-        star.style.display="none";
-
-        document.getElementById("wishBox").style.display="block";
-
-        document.getElementById("wishTitle").innerHTML=
-        "🌠 My Wish";
-
-        document.getElementById("wishText").innerHTML=
-        "If I ever wished upon a star... I'd wish to keep writing our story together. ❤️";
-
-    },1200);
-
-}
-
-
-// ---------- Dog & Cat ----------
-
-let dogTouched=false;
-let catTouched=false;
-
-function touchDog(){
-
-    dogTouched=true;
-
-    document.getElementById("dog").style.left="36%";
-
-    checkLove();
-
-}
-
-function touchCat(){
-
-    catTouched=true;
-
-    document.getElementById("cat").style.right="36%";
-
-    checkLove();
-
-}
-
-
-// ---------- Hearts ----------
-
-function checkLove(){
-
-    if(dogTouched && catTouched){
-
-        for(let i=0;i<18;i++){
-
-            setTimeout(createHeart,i*120);
-
-        }
+        setTimeout(showEnding,1500);
 
     }
 
 }
 
-function createHeart(){
+/* ==============================
+   FLOATING HEARTS
+============================== */
 
-    const heart=document.createElement("div");
+function createHearts(){
 
-    heart.className="heart";
+    const container=document.getElementById("heartContainer");
 
-    heart.innerHTML="❤️";
+    for(let i=0;i<8;i++){
 
-    heart.style.left=(48+Math.random()*4)+"%";
+        const heart=document.createElement("div");
 
-    heart.style.bottom="180px";
+        heart.className="heart";
 
-    document.getElementById("floatingHearts").appendChild(heart);
+        heart.innerHTML="❤️";
 
-    setTimeout(()=>{
+        heart.style.left=(40+Math.random()*20)+"%";
 
-        heart.remove();
+        heart.style.bottom="130px";
 
-    },2500);
+        heart.style.fontSize=(18+Math.random()*14)+"px";
+
+        heart.style.animationDuration=(2+Math.random())+"s";
+
+        container.appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },3000);
+
+    }
 
 }
 
+/* ==============================
+   PET THE PUPPY
+============================== */
 
-// ---------- Next Page ----------
+function petDog(){
+
+    const dog=document.getElementById("dog");
+
+    dog.style.transform="translateX(-120px) scale(1.12)";
+
+    createHearts();
+
+    setTimeout(()=>{
+
+        dog.style.transform="translateX(-120px)";
+
+    },400);
+
+}
+
+/* ==============================
+   PET THE KITTEN
+============================== */
+
+function petCat(){
+
+    const cat=document.getElementById("cat");
+
+    cat.style.transform="scale(1.12)";
+
+    createHearts();
+
+    setTimeout(()=>{
+
+        cat.style.transform="scale(1)";
+
+    },400);
+
+}
+
+/* ==============================
+   FINAL MESSAGE
+============================== */
+
+function showEnding(){
+
+    document.getElementById("messageCard").classList.add("hidden");
+
+    document.getElementById("constellation").classList.add("hidden");
+
+    document.getElementById("finalMessage").classList.remove("hidden");
+
+}
+
+/* ==============================
+   NEXT PAGE
+============================== */
 
 function nextPage(){
 
-    document.body.style.transition=".8s";
+    document.body.style.transition="1s";
 
     document.body.style.opacity="0";
 
@@ -219,6 +204,6 @@ function nextPage(){
 
         window.location.href="page6.html";
 
-    },800);
+    },900);
 
 }
