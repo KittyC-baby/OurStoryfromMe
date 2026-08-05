@@ -154,6 +154,7 @@ main{
 =========================== */
 
 .openBtn{
+    display:none;
     margin-top:30px;
     padding:15px 35px;
     border:none;
@@ -168,7 +169,6 @@ main{
     position:relative;
     z-index:100;
 }
-
 .openBtn:hover{
     transform:scale(1.08);
     box-shadow:0 0 30px #ff69b4;
@@ -181,6 +181,10 @@ main{
 .hidden{
     display:none;
 }
+   .show-btn{
+    display:inline-block !important;
+   }
+
 
 /* ===========================
    TEXT
