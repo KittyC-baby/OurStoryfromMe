@@ -1,6 +1,6 @@
-/* ===========================
+/* ==========================================
    RESET
-=========================== */
+========================================== */
 
 *{
     margin:0;
@@ -9,124 +9,160 @@
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
-    background:#000;
+    background:#050510;
+    overflow:hidden;
     color:white;
-    overflow-x:hidden;
-    min-height:100vh;
-
 }
 
-
-.hidden{
-    display:none;
-}
-/* ===========================
+/* ==========================================
    BACKGROUND
-=========================== */
+========================================== */
 
 .background{
-
     position:fixed;
     inset:0;
-    background:linear-gradient(to bottom,#000,#120012,#240018);
-    z-index:-3;
-
+    overflow:hidden;
+    z-index:-5;
+    background:
+    linear-gradient(to bottom,#07071c,#140824,#1b0c30);
 }
 
-.stars-bg{
+/* ==========================================
+   MOON
+========================================== */
 
+.moon{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:#fff6cf;
+    top:60px;
+    right:12%;
+    box-shadow:
+    0 0 40px #fff6cf,
+    0 0 100px rgba(255,255,220,.8);
+}
+
+/* ==========================================
+   STARS
+========================================== */
+
+.stars{
     position:absolute;
     inset:0;
-
     background-image:
-    radial-gradient(white 1px,transparent 1px),
-    radial-gradient(#ff8fab 1px,transparent 1px);
+    radial-gradient(#ffffff 1px,transparent 1px),
+    radial-gradient(#ffb6d5 1px,transparent 1px);
 
     background-size:70px 70px;
     background-position:0 0,35px 35px;
 
-    opacity:.6;
-
-    animation:twinkle 4s infinite alternate;
-
+    animation:twinkle 5s infinite alternate;
+    opacity:.7;
 }
 
 @keyframes twinkle{
 
     from{
-        opacity:.3;
+        opacity:.35;
     }
 
     to{
-        opacity:.8;
+        opacity:1;
     }
 
 }
 
-/* ===========================
-   MOON
-=========================== */
+/* ==========================================
+   PETALS
+========================================== */
 
-.moon{
+.petals::before,
+.petals::after{
 
+    content:"🌸";
     position:absolute;
+    font-size:28px;
+    animation:fall 14s linear infinite;
+}
 
-    width:120px;
-    height:120px;
+.petals::before{
+    left:18%;
+}
 
-    background:#fff8dc;
+.petals::after{
+    left:75%;
+    animation-delay:7s;
+}
 
-    border-radius:50%;
+@keyframes fall{
 
-    top:60px;
-    right:70px;
+    from{
+        transform:
+        translateY(-120px)
+        rotate(0deg);
+    }
 
-    box-shadow:
-    0 0 40px #fff,
-    0 0 80px #ffd6e7;
+    to{
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+    }
 
 }
 
-/* ===========================
-   INTRO
-=========================== */
+/* ==========================================
+   MAIN SCENE
+========================================== */
 
-#intro{
+.scene{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
     text-align:center;
-    padding-top:80px;
 
+    padding:20px;
 }
 
 #title{
-
-    font-size:55px;
     font-family:'Caveat',cursive;
-    color:#ff8fab;
-
+    font-size:58px;
+    color:#ffd4ea;
 }
 
 #subtitle{
-
-    margin-top:20px;
-    color:#ffd6e7;
+    margin-top:15px;
+    color:#ffe6ef;
     font-size:20px;
+    max-width:650px;
     line-height:1.8;
-
 }
 
-/* ===========================
+.hidden{
+    display:none;
+}
+/* ==========================================
    ROOFTOP
-=========================== */
+========================================== */
 
 #rooftop{
 
     position:relative;
 
     width:100%;
-    height:850px;
+
+    max-width:900px;
+
+    height:420px;
+
+    margin-top:50px;
 
 }
 
@@ -136,245 +172,574 @@ body{
 
     bottom:0;
 
+    left:50%;
+
+    transform:translateX(-50%);
+
     width:100%;
-    height:220px;
 
-    background:#111;
+    height:180px;
 
-    clip-path:polygon(0 100%,100% 100%,100% 45%,50% 0,0 45%);
+    background:#232323;
+
+    clip-path:polygon(0 100%,100% 100%,80% 0,20% 0);
+
+    box-shadow:
+    0 -10px 35px rgba(255,255,255,.05);
 
 }
 
-/* ===========================
-   DOG & CAT
-=========================== */
+/* ==========================================
+   GOLDEN PUPPY
+========================================== */
 
-#dog,
+#dog{
+
+    position:absolute;
+
+    bottom:95px;
+
+    left:48%;
+
+    transform:translateX(-120px);
+
+    width:120px;
+
+    height:150px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#dog:hover{
+
+    transform:
+    translateX(-120px)
+    scale(1.08);
+
+}
+
+.dog-head{
+
+    position:absolute;
+
+    top:0;
+
+    left:20px;
+
+    width:80px;
+
+    height:80px;
+
+    background:#f6c76a;
+
+    border-radius:50%;
+
+}
+
+.dog-ear{
+
+    position:absolute;
+
+    width:26px;
+
+    height:42px;
+
+    background:#dca046;
+
+    border-radius:50%;
+
+    top:-10px;
+
+}
+
+.dog-ear.left{
+
+    left:18px;
+
+    transform:rotate(-25deg);
+
+}
+
+.dog-ear.right{
+
+    right:18px;
+
+    transform:rotate(25deg);
+
+}
+
+.dog-eye{
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    background:#222;
+
+    border-radius:50%;
+
+    top:28px;
+
+}
+
+.dog-eye.left{
+
+    left:22px;
+
+}
+
+.dog-eye.right{
+
+    right:22px;
+
+}
+
+.dog-nose{
+
+    position:absolute;
+
+    width:12px;
+
+    height:9px;
+
+    background:#222;
+
+    border-radius:50%;
+
+    left:34px;
+
+    top:43px;
+
+}
+
+.dog-mouth{
+
+    position:absolute;
+
+    width:20px;
+
+    height:10px;
+
+    border-bottom:2px solid #333;
+
+    border-radius:50%;
+
+    left:30px;
+
+    top:50px;
+
+}
+
+.dog-blush{
+
+    position:absolute;
+
+    width:12px;
+
+    height:12px;
+
+    background:#ff9fb4;
+
+    opacity:.6;
+
+    border-radius:50%;
+
+    top:43px;
+
+}
+
+.dog-blush.left{
+
+    left:12px;
+
+}
+
+.dog-blush.right{
+
+    right:12px;
+
+}
+
+.dog-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:25px;
+
+    width:70px;
+
+    height:75px;
+
+    background:#f6c76a;
+
+    border-radius:35px;
+
+}
+
+.collar{
+
+    position:absolute;
+
+    top:10px;
+
+    width:100%;
+
+    height:8px;
+
+    background:#111;
+
+    border-radius:10px;
+
+}
+
+.dog-tail{
+
+    position:absolute;
+
+    right:6px;
+
+    bottom:28px;
+
+    width:30px;
+
+    height:8px;
+
+    background:#f6c76a;
+
+    border-radius:20px;
+
+    transform:rotate(-35deg);
+
+    transform-origin:left center;
+
+    animation:wag 1s infinite;
+
+}
+
+@keyframes wag{
+
+    0%{
+
+        transform:rotate(-35deg);
+
+    }
+
+    50%{
+
+        transform:rotate(15deg);
+
+    }
+
+    100%{
+
+        transform:rotate(-35deg);
+
+    }
+
+}
+
+/* ==========================================
+   BLACK KITTEN
+========================================== */
+
 #cat{
 
     position:absolute;
 
-    bottom:130px;
+    bottom:95px;
 
-    transition:.5s;
+    left:52%;
+
+    width:110px;
+
+    height:145px;
 
     cursor:pointer;
 
-    animation:float 3s ease-in-out infinite;
+    transition:.35s;
 
 }
 
-#dog{
+#cat:hover{
 
-    left:28%;
-
-}
-
-#cat{
-
-    right:28%;
+    transform:scale(1.08);
 
 }
 
-#dog img,
-#cat img{
+.cat-head{
 
-    width:180px;
+    position:absolute;
 
-    user-select:none;
+    top:0;
+
+    left:18px;
+
+    width:74px;
+
+    height:74px;
+
+    background:#111;
+
+    border-radius:50%;
+
+}
+
+.cat-ear{
+
+    position:absolute;
+
+    width:22px;
+
+    height:22px;
+
+    background:#111;
+
+    clip-path:polygon(50% 0,0 100%,100% 100%);
+
+    top:-8px;
+
+}
+
+.cat-ear.left{
+
+    left:20px;
+
+}
+
+.cat-ear.right{
+
+    right:20px;
+
+       }
+/* ==========================================
+   FINISH THE CAT
+========================================== */
+
+.cat-nose{
+
+    position:absolute;
+
+    width:10px;
+    height:8px;
+
+    background:#ff8fab;
+
+    border-radius:50%;
+
+    left:32px;
+    top:40px;
+
+}
+
+.cat-mouth{
+
+    position:absolute;
+
+    width:18px;
+    height:10px;
+
+    border-bottom:2px solid #fff;
+
+    border-radius:50%;
+
+    left:28px;
+    top:48px;
+
+}
+
+.cat-blush{
+
+    position:absolute;
+
+    width:10px;
+    height:10px;
+
+    background:#ff9fb4;
+
+    opacity:.6;
+
+    border-radius:50%;
+
+    top:42px;
+
+}
+
+.cat-blush.left{
+
+    left:12px;
+
+}
+
+.cat-blush.right{
+
+    right:12px;
+
+}
+
+.cat-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:22px;
+
+    width:68px;
+
+    height:74px;
+
+    background:#111;
+
+    border-radius:34px;
+
+}
+
+.pink-collar{
+
+    position:absolute;
+
+    top:10px;
+
+    width:100%;
+    height:8px;
+
+    background:#ff6fa8;
+
+    border-radius:10px;
+
+}
+
+.cat-tail{
+
+    position:absolute;
+
+    left:-8px;
+
+    bottom:28px;
+
+    width:34px;
+    height:8px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    transform:rotate(35deg);
+
+}
+
+/* ==========================================
+   CONSTELLATION
+========================================== */
+
+#constellation{
+
+    position:absolute;
+
+    inset:0;
 
     pointer-events:none;
 
-    filter:drop-shadow(0 0 18px rgba(255,255,255,.18));
-
 }
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
-  }
-/* ===========================
-   CLICKABLE STARS
-=========================== */
 
 .star{
 
     position:absolute;
 
-    font-size:30px;
+    font-size:28px;
 
     cursor:pointer;
 
-    transition:.3s;
+    pointer-events:auto;
 
     animation:glow 2s infinite alternate;
 
 }
 
-.star:hover{
-
-    transform:scale(1.3);
-
-}
-
-.s1{top:100px;left:12%;}
-.s2{top:170px;left:28%;}
-.s3{top:90px;left:48%;}
-.s4{top:180px;right:28%;}
-.s5{top:120px;right:12%;}
-.s6{top:250px;left:38%;}
-.s7{top:260px;right:38%;}
-
-.secretStar{
-
-    top:60px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font-size:38px;
-
-}
+.s1{top:12%;left:22%;}
+.s2{top:20%;right:20%;}
+.s3{top:34%;left:14%;}
+.s4{top:40%;right:15%;}
+.s5{top:18%;left:50%;}
 
 @keyframes glow{
 
     from{
 
-        text-shadow:0 0 8px #fff;
+        transform:scale(1);
+
+        filter:drop-shadow(0 0 6px gold);
 
     }
 
     to{
 
-        text-shadow:
-        0 0 15px #fff,
-        0 0 25px #ff8fab;
+        transform:scale(1.2);
+
+        filter:drop-shadow(0 0 20px gold);
 
     }
 
 }
 
-/* ===========================
-   WISH BOX
-=========================== */
+/* ==========================================
+   MESSAGE CARD
+========================================== */
 
-#wishBox{
+#messageCard{
 
-    position:absolute;
+    margin-top:30px;
 
-    left:50%;
+    width:min(90%,520px);
 
-    top:360px;
+    background:rgba(255,255,255,.08);
 
-    transform:translateX(-50%);
+    border:2px solid #ff8fab;
 
-    width:420px;
-
-    max-width:90%;
-
-    background:rgba(20,20,20,.92);
-
-    border:2px solid #ff4d6d;
-
-    border-radius:18px;
+    border-radius:22px;
 
     padding:25px;
 
-    text-align:center;
-
-    display:none;
-
-    box-shadow:0 0 25px rgba(255,77,109,.4);
+    backdrop-filter:blur(8px);
 
 }
 
-#wishTitle{
+#messageCard h2{
 
-    color:#ff8fab;
+    color:#ffd4e8;
 
     margin-bottom:12px;
 
-    font-family:'Caveat',cursive;
-
-    font-size:38px;
-
 }
 
-#wishText{
-
-    color:#ffe6ef;
+#messageText{
 
     line-height:1.8;
 
-}
-
-/* ===========================
-   CONTINUE BUTTON
-=========================== */
-
-#continueArea{
-
-    position:absolute;
-
-    bottom:40px;
-
-    width:100%;
-
-    text-align:center;
+    color:#fff0f6;
 
 }
 
-#continueBtn{
+/* ==========================================
+   HEARTS
+========================================== */
 
-    padding:15px 35px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:#ff4d6d;
-
-    color:#fff;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-#continueBtn:hover{
-
-    transform:scale(1.08);
-
-    background:#ff8fab;
-
-}
-
-/* ===========================
-   FLOATING HEARTS
-=========================== */
-
-#floatingHearts{
+#heartContainer{
 
     position:fixed;
 
     inset:0;
 
     pointer-events:none;
+
+    overflow:hidden;
 
 }
 
@@ -384,15 +749,111 @@ body{
 
     color:#ff4d6d;
 
-    font-size:22px;
+    font-size:24px;
 
-    animation:heartFloat 2.5s linear forwards;
+    animation:floatHeart 3s linear forwards;
 
 }
 
-@keyframes heartFloat{
+@keyframes floatHeart{
 
     from{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-220px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================
+   FINAL MESSAGE
+========================================== */
+
+#finalMessage{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    animation:fadeIn 1.2s ease;
+
+}
+
+#finalMessage h1{
+
+    font-family:'Caveat',cursive;
+
+    font-size:58px;
+
+    color:#ffd4ea;
+
+}
+
+#finalMessage p{
+
+    margin:20px auto;
+
+    max-width:650px;
+
+    line-height:2;
+
+    color:#ffe6ef;
+
+    font-size:20px;
+
+}
+
+.continueBtn{
+
+    margin-top:25px;
+
+    padding:18px 48px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.continueBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 25px rgba(255,77,109,.6);
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
 
         opacity:1;
 
@@ -400,43 +861,21 @@ body{
 
     }
 
-    to{
-
-        opacity:0;
-
-        transform:translateY(-180px);
-
-    }
-
 }
 
-/* ===========================
-   SHOOTING STAR
-=========================== */
-
-#shootingStar{
-
-    position:fixed;
-
-    width:4px;
-
-    height:4px;
-
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:0 0 15px white;
-
-    display:none;
-
-}
-
-/* ===========================
+/* ==========================================
    MOBILE
-=========================== */
+========================================== */
 
 @media(max-width:768px){
+
+    .moon{
+
+        width:120px;
+        height:120px;
+
+        right:8%;
+    }
 
     #title{
 
@@ -448,32 +887,23 @@ body{
 
         font-size:17px;
 
-        padding:0 20px;
-
-    }
-
-    #dog img,
-    #cat img{
-
-        width:130px;
-
     }
 
     #dog{
 
-        left:12%;
+        transform:translateX(-95px) scale(.9);
 
     }
 
     #cat{
 
-        right:12%;
+        transform:scale(.9);
 
     }
 
-    #wishBox{
+    .star{
 
-        width:90%;
+        font-size:22px;
 
     }
 
