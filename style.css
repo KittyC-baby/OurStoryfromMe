@@ -450,3 +450,27 @@ main{
     transition:1s;
 
 }
+
+.showBook{
+
+    animation: appear 1.3s ease;
+
+}
+
+@keyframes appear{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px) scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0) scale(1);
+
+    }
+
+}
