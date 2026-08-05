@@ -3,100 +3,93 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Story ❤️</title>
+<title>Our Story ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- Background -->
+<!-- Background -->
 
-    <div class="background">
+<div class="background">
 
-        <div class="stars"></div>
+    <div class="stars"></div>
 
-        <div class="petals"></div>
+    <div class="petals"></div>
+
+</div>
+
+<!-- Sparkles -->
+
+<div class="sparkles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<!-- Main Content -->
+
+<main>
+
+    <!-- Typing Text -->
+
+    <div class="typing-box">
+
+        <h2 id="typing"></h2>
 
     </div>
 
-    <!-- Sparkles -->
-
-    <div class="sparkles">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-    <!-- Main -->
-
-    <main>
-
-        <!-- Typing Text -->
-
-        <div class="typing-box">
-
-            <h2 id="typing"></h2>
-
-        </div>
-
-        <!-- Scrapbook -->
-
-        <div id="bookContainer" class="hidden">
-
-            <div class="scrapbook">
-
-                <div class="cover">
-
-                    <div class="heart">❤️</div>
-
-                    <h1>Our Story</h1>
-
-                    <p>Made with Love</p>
-
-                    <button class="openBtn" onclick="openBook()">
-                        💌 Open My Heart For You
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- Hidden Message -->
+    <!-- Hidden Note -->
 
     <div id="hiddenNote">
 
-        It's okay...
-        <br><br>
+        <p>
 
-        Take your time.
-        <br><br>
+            It's okay...
 
-        My heart has been waiting for you. ❤️
+            <br><br>
+
+            Take your time.
+
+            <br><br>
+
+            My heart has been waiting for you. ❤️
+
+        </p>
 
     </div>
 
-    <!-- Fade -->
+    <!-- Open Button -->
 
-    <div id="fade"></div>
+    <button
+        id="openHeartBtn"
+        class="openBtn hidden"
+        onclick="openBook()">
 
-    <script src="script.js"></script>
+        ❤️ Open Your Heart ❤️
+
+    </button>
+
+</main>
+
+<!-- Fade Effect -->
+
+<div id="fade"></div>
+
+<script src="script.js"></script>
 
 </body>
 
