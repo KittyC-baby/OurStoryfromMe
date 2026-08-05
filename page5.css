@@ -277,3 +277,295 @@ body{
     }
 
    }
+/* ==========================================
+   CONSTELLATION
+========================================== */
+
+#constellation{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:5;
+}
+
+.star{
+    position:absolute;
+    font-size:32px;
+    cursor:pointer;
+    pointer-events:auto;
+    animation:starGlow 2.5s infinite alternate;
+}
+
+.s1{top:10%;left:12%;}
+.s2{top:18%;right:12%;}
+.s3{top:32%;left:25%;}
+.s4{top:28%;right:28%;}
+.s5{top:8%;left:50%;}
+
+@keyframes starGlow{
+
+    from{
+        transform:scale(1);
+        filter:drop-shadow(0 0 6px gold);
+    }
+
+    to{
+        transform:scale(1.2);
+        filter:drop-shadow(0 0 18px gold);
+    }
+
+}
+
+/* ==========================================
+   MESSAGE CARD
+========================================== */
+
+#messageCard{
+
+    width:min(90%,520px);
+
+    margin-top:25px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    border:2px solid rgba(255,182,210,.4);
+
+    border-radius:22px;
+
+    z-index:30;
+
+}
+
+#messageCard h2{
+
+    color:#ffd5ea;
+
+    margin-bottom:15px;
+
+}
+
+#messageText{
+
+    color:#fff2f7;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   HEARTS
+========================================== */
+
+#heartContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:100;
+
+}
+
+.heart{
+
+    position:absolute;
+
+    font-size:24px;
+
+    color:#ff5d8f;
+
+    animation:heartFloat 3s linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+    from{
+        transform:translateY(0) scale(.8);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-220px) scale(1.5);
+        opacity:0;
+    }
+
+}
+
+/* ==========================================
+   FINAL MESSAGE
+========================================== */
+
+.hidden{
+    display:none;
+}
+
+#finalMessage{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    animation:fadeUp 1s ease;
+
+    z-index:50;
+
+}
+
+#finalMessage h1{
+
+    font-family:'Caveat',cursive;
+
+    font-size:56px;
+
+    color:#ffd7e8;
+
+}
+
+#finalMessage p{
+
+    margin:18px auto;
+
+    max-width:650px;
+
+    line-height:2;
+
+    color:#fff2f6;
+
+    font-size:20px;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.continueBtn{
+
+    margin-top:20px;
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff4f8b,#ff8db8);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 0 18px rgba(255,105,180,.5);
+
+}
+
+.continueBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 28px rgba(255,105,180,.8);
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .moon{
+        width:120px;
+        height:120px;
+        right:8%;
+    }
+
+    #title{
+        font-size:42px;
+    }
+
+    #subtitle{
+        font-size:16px;
+    }
+
+    #rooftop{
+        height:320px;
+    }
+
+    #dog{
+
+        width:120px;
+
+        transform:translateX(-135px);
+
+    }
+
+    #cat{
+
+        width:120px;
+
+        transform:translateX(10px);
+
+    }
+
+    #dog:hover{
+
+        transform:translateX(-135px) scale(1.08);
+
+    }
+
+    #cat:hover{
+
+        transform:translateX(10px) scale(1.08);
+
+    }
+
+    #messageCard{
+
+        width:94%;
+
+        padding:20px;
+
+    }
+
+    #finalMessage h1{
+
+        font-size:42px;
+
+    }
+
+    #finalMessage p{
+
+        font-size:17px;
+
+        line-height:1.8;
+
+    }
+
+}
