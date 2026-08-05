@@ -1,10 +1,12 @@
-// ===========================
-// Typing Animation
-// ===========================
+const message = `Some stories are written in books...
 
-const message = `Sometimes...
+Ours was written in our hearts.
 
-The most beautiful stories begin with a single heart. ❤️`;
+I'm opening my heart...
+
+For one person,
+
+Once again. 🌸`;
 
 const typing = document.getElementById("typing");
 const hiddenNote = document.getElementById("hiddenNote");
@@ -17,29 +19,25 @@ function typeWriter() {
     if (index < message.length) {
         typing.innerHTML += message.charAt(index);
         index++;
-        setTimeout(typeWriter, 60);
+        setTimeout(typeWriter, 50);
     } else {
-        setTimeout(() => {
-            hiddenNote.classList.add("show");
-            openBtn.classList.remove("hidden");
-        }, 800);
+        hiddenNote.classList.add("show");
+
+        // Show button
+        openBtn.classList.remove("hidden");
+        openBtn.style.display = "inline-block";
+        openBtn.innerHTML = "❤️ You ❤️";
     }
 }
 
-window.onload = () => {
+window.onload = function () {
     typeWriter();
 };
 
-// ===========================
-// Open Heart Button
-// ===========================
-
 function openBook() {
-
     fade.style.opacity = "1";
 
-    setTimeout(() => {
+    setTimeout(function () {
         window.location.href = "page2.html";
     }, 1000);
-
 }
