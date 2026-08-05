@@ -11,108 +11,166 @@
 
 <link rel="stylesheet" href="page5.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Background -->
-
 <div class="background">
 
-    <div class="stars-bg"></div>
+<div class="moon"></div>
 
-    <div class="moon"></div>
+<div class="stars"></div>
 
-</div>
-
-<!-- Intro -->
-
-<div id="intro">
-
-    <h1 id="title"></h1>
-
-    <p id="subtitle"></p>
+<div class="petals"></div>
 
 </div>
 
-<!-- Rooftop Scene -->
+<div class="scene">
+
+<h1 id="title"></h1>
+
+<p id="subtitle"></p>
 
 <div id="rooftop" class="hidden">
 
-    <!-- Roof -->
+<div class="roof"></div>
 
-    <div class="roof"></div>
+<!-- GOLDEN PUPPY -->
 
-    <!-- Clickable Stars -->
+<div id="dog" onclick="petDog()">
 
-    <div class="star s1" onclick="showWish(1)">⭐</div>
+<div class="dog-ear left"></div>
 
-    <div class="star s2" onclick="showWish(2)">⭐</div>
+<div class="dog-ear right"></div>
 
-    <div class="star s3" onclick="showWish(3)">⭐</div>
+<div class="dog-head">
 
-    <div class="star s4" onclick="showWish(4)">⭐</div>
+<div class="dog-eye left"></div>
 
-    <div class="star s5" onclick="showWish(5)">⭐</div>
+<div class="dog-eye right"></div>
 
-    <div class="star s6" onclick="showWish(6)">⭐</div>
+<div class="dog-nose"></div>
 
-    <div class="star s7" onclick="showWish(7)">⭐</div>
+<div class="dog-mouth"></div>
 
-    <!-- Secret Star -->
+<div class="dog-blush left"></div>
 
-    <div class="star secretStar" onclick="secretWish()">🌟</div>
+<div class="dog-blush right"></div>
 
-    <!-- Dog (Her) -->
+</div>
 
-    <div id="dog" onclick="touchDog()">
+<div class="dog-body">
 
-        <img src="dog.png" alt="Black Dog">
+<div class="collar"></div>
 
-    </div>
+</div>
 
-    <!-- Cat (You) -->
+<div class="dog-tail"></div>
 
-    <div id="cat" onclick="touchCat()">
+</div>
 
-        <img src="cat.png" alt="Black Cat">
+<!-- BLACK KITTEN -->
 
-    </div>
+<div id="cat" onclick="petCat()">
 
-    <!-- Floating Hearts -->
+<div class="cat-ear left"></div>
 
-    <div id="heartArea"></div>
+<div class="cat-ear right"></div>
 
-    <!-- Wish Popup -->
+<div class="cat-head">
 
-    <div id="wishBox">
+<div class="cat-eye left"></div>
 
-        <h2 id="wishTitle"></h2>
+<div class="cat-eye right"></div>
 
-        <p id="wishText"></p>
+<div class="cat-nose"></div>
 
-    </div>
-        <!-- Continue Button -->
+<div class="cat-mouth"></div>
 
-    <div id="continueArea">
+<div class="cat-blush left"></div>
 
-        <button id="continueBtn" onclick="nextPage()">
-            Continue Our Story ➜
-        </button>
+<div class="cat-blush right"></div>
 
-    </div>
+</div>
+
+<div class="cat-body">
+
+<div class="pink-collar"></div>
+
+</div>
+
+<div class="cat-tail"></div>
+
+</div>
+<!-- Message Card -->
+
+<div id="messageCard" class="hidden">
+
+<h2>⭐ A Little Wish ⭐</h2>
+
+<p id="messageText">
+
+Tap the glowing stars one by one...
+
+Each one is hiding a little piece of my heart. ❤️
+
+</p>
+
+</div>
+
+<!-- Constellation Stars -->
+
+<div id="constellation">
+
+<div class="star s1" onclick="showStar(1)">⭐</div>
+
+<div class="star s2" onclick="showStar(2)">⭐</div>
+
+<div class="star s3" onclick="showStar(3)">⭐</div>
+
+<div class="star s4" onclick="showStar(4)">⭐</div>
+
+<div class="star s5" onclick="showStar(5)">⭐</div>
 
 </div>
 
 <!-- Floating Hearts -->
 
-<div id="floatingHearts"></div>
+<div id="heartContainer"></div>
 
-<!-- Shooting Star -->
+<!-- Final Message -->
 
-<div id="shootingStar"></div>
+<div id="finalMessage" class="hidden">
+
+<h1>🏡 Home ❤️</h1>
+
+<p>
+
+Home isn't a place anymore...
+
+<br><br>
+
+It's wherever you are.
+
+<br><br>
+
+Thank you for walking into my life.
+
+🐶🩷🐱
+
+</p>
+
+<button onclick="nextPage()" class="continueBtn">
+
+Continue Our Story ➜
+
+</button>
+
+</div>
+
+</div>
 
 <script src="page5.js"></script>
 
