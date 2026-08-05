@@ -474,3 +474,72 @@ main{
     }
 
 }
+/* ===========================
+   OPEN HEART BUTTON
+=========================== */
+
+.openBtn{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:18px 45px;
+
+    background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 20px rgba(255,77,109,.6),
+    0 0 40px rgba(255,143,171,.3);
+
+    transition:.35s ease;
+
+    animation:buttonFloat 2.5s ease-in-out infinite;
+
+}
+
+.openBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 25px rgba(255,77,109,.8),
+    0 0 55px rgba(255,143,171,.6);
+
+}
+
+@keyframes buttonFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
