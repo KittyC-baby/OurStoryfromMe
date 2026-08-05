@@ -919,3 +919,12 @@ main{
         transform:translateY(0);
     }
 }
+#fade{
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 1s;
+    z-index:9999;
+}
