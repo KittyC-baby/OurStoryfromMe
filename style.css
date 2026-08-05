@@ -849,3 +849,73 @@ body{
     -webkit-tap-highlight-color:transparent;
 
    }
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+main{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    text-align:center;
+    position:relative;
+    z-index:5;
+}
+
+.typing-box{
+    max-width:700px;
+    margin-bottom:30px;
+}
+
+#typing{
+    font-size:2rem;
+    color:#ff9ec9;
+    text-shadow:0 0 15px #ff4f9a;
+    line-height:1.6;
+}
+
+#hiddenNote{
+    display:none;
+    margin-top:25px;
+    animation:fadeIn .8s ease;
+}
+
+#hiddenNote.show{
+    display:block;
+}
+
+.openBtn{
+    margin-top:35px;
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff4f9a,#ff1493);
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(255,105,180,.8);
+    position:relative;
+    z-index:100;
+}
+
+.hidden{
+    display:none;
+}
+
+.openBtn:hover{
+    transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
