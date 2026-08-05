@@ -1,209 +1,171 @@
-/* ==============================
-   INTRO TYPING
-============================== */
+// ======================================
+// PAGE 5 SCRIPT
+// ======================================
 
-const title = "One Night, Just Us 🌙";
-const text =
-"Even ordinary nights become magical when you're beside me...";
+const dog = document.getElementById("dog");
+const cat = document.getElementById("cat");
+const card = document.getElementById("messageCard");
+const text = document.getElementById("messageText");
+const finalMessage = document.getElementById("finalMessage");
+const stars = document.querySelectorAll(".star");
+const heartContainer = document.getElementById("heartContainer");
 
-let t = 0;
-let p = 0;
+let dogClicked = false;
+let catClicked = false;
 
-const titleEl = document.getElementById("title");
-const textEl = document.getElementById("subtitle");
+// ======================================
+// Floating Hearts
+// ======================================
 
-function typeTitle(){
+function createHeart(){
 
-    if(t < title.length){
+    const heart = document.createElement("div");
 
-        titleEl.innerHTML += title.charAt(t);
+    heart.className = "heart";
 
-        t++;
+    heart.innerHTML = "❤";
 
-        setTimeout(typeTitle,70);
+    heart.style.left = Math.random()*100 + "%";
 
-    }
+    heart.style.bottom = "0px";
 
-    else{
+    heart.style.fontSize = (20 + Math.random()*20) + "px";
 
-        typeText();
+    heartContainer.appendChild(heart);
 
-    }
-
-}
-
-function typeText(){
-
-    if(p < text.length){
-
-        textEl.innerHTML += text.charAt(p);
-
-        p++;
-
-        setTimeout(typeText,35);
-
-    }
-
-    else{
-
-        document.getElementById("rooftop").classList.remove("hidden");
-
-        document.getElementById("messageCard").classList.remove("hidden");
-
-    }
+    setTimeout(()=>{
+        heart.remove();
+    },3000);
 
 }
 
-typeTitle();
+// Hearts every second
+setInterval(createHeart,1000);
 
-/* ==============================
-   STAR MESSAGES
-============================== */
+// ======================================
+// Puppy
+// ======================================
 
-const messages=[
+dog.onclick = ()=>{
 
-"You make me feel safe. ❤️",
+    dogClicked = true;
 
-"You became my favourite person. 🌸",
+    text.innerHTML = `
+    🐶<br><br>
 
-"I still smile when I remember our first chat. ✨",
+    Hi!! 💛
 
-"Thank you for staying with me. 🤍",
+    I know someone...
 
-"Let's keep making beautiful memories together. 🌙"
+    who smiles a little brighter whenever you're around.
 
-];
+    <br><br>
 
-let opened=0;
+    And I think...
 
-function showStar(num){
-
-    document.getElementById("messageText").innerHTML=messages[num-1];
-
-    const star=document.querySelector(".s"+num);
-
-    star.style.color="#ffd700";
-
-    star.style.transform="scale(1.4)";
-
-    star.style.pointerEvents="none";
-
-    opened++;
-
-    createHearts();
-
-    if(opened===5){
-
-        setTimeout(showEnding,1500);
-
-    }
-
-}
-
-/* ==============================
-   FLOATING HEARTS
-============================== */
-
-function createHearts(){
-
-    const container=document.getElementById("heartContainer");
+    that someone is completely in love with you. ❤️
+    `;
 
     for(let i=0;i<8;i++){
 
-        const heart=document.createElement("div");
+        setTimeout(createHeart,i*120);
 
-        heart.className="heart";
+    }
 
-        heart.innerHTML="❤️";
+    checkFinished();
 
-        heart.style.left=(40+Math.random()*20)+"%";
+};
 
-        heart.style.bottom="130px";
+// ======================================
+// Kitten
+// ======================================
 
-        heart.style.fontSize=(18+Math.random()*14)+"px";
+cat.onclick = ()=>{
 
-        heart.style.animationDuration=(2+Math.random())+"s";
+    catClicked = true;
 
-        container.appendChild(heart);
+    text.innerHTML = `
+    🐱<br><br>
+
+    Meow... 🩷
+
+    If love had a favorite place...
+
+    it would be wherever you are.
+
+    <br><br>
+
+    You're someone's safe place,
+
+    happiness,
+
+    and forever. ✨
+    `;
+
+    for(let i=0;i<8;i++){
+
+        setTimeout(createHeart,i*120);
+
+    }
+
+    checkFinished();
+
+};
+
+// ======================================
+// Stars
+// ======================================
+
+stars.forEach(star=>{
+
+    star.onclick=()=>{
+
+        createHeart();
+
+        star.style.transform="scale(1.6)";
 
         setTimeout(()=>{
 
-            heart.remove();
+            star.style.transform="scale(1)";
 
-        },3000);
+        },300);
+
+    }
+
+});
+
+// ======================================
+// Final Message
+// ======================================
+
+function checkFinished(){
+
+    if(dogClicked && catClicked){
+
+        setTimeout(()=>{
+
+            finalMessage.classList.remove("hidden");
+
+            window.scrollTo({
+
+                top:document.body.scrollHeight,
+
+                behavior:"smooth"
+
+            });
+
+        },1000);
 
     }
 
 }
 
-/* ==============================
-   PET THE PUPPY
-============================== */
-
-function petDog(){
-
-    const dog=document.getElementById("dog");
-
-    dog.style.transform="translateX(-120px) scale(1.12)";
-
-    createHearts();
-
-    setTimeout(()=>{
-
-        dog.style.transform="translateX(-120px)";
-
-    },400);
-
-}
-
-/* ==============================
-   PET THE KITTEN
-============================== */
-
-function petCat(){
-
-    const cat=document.getElementById("cat");
-
-    cat.style.transform="scale(1.12)";
-
-    createHearts();
-
-    setTimeout(()=>{
-
-        cat.style.transform="scale(1)";
-
-    },400);
-
-}
-
-/* ==============================
-   FINAL MESSAGE
-============================== */
-
-function showEnding(){
-
-    document.getElementById("messageCard").classList.add("hidden");
-
-    document.getElementById("constellation").classList.add("hidden");
-
-    document.getElementById("finalMessage").classList.remove("hidden");
-
-}
-
-/* ==============================
-   NEXT PAGE
-============================== */
+// ======================================
+// Continue
+// ======================================
 
 function nextPage(){
 
-    document.body.style.transition="1s";
-
-    document.body.style.opacity="0";
-
-    setTimeout(()=>{
-
-        window.location.href="page6.html";
-
-    },900);
+    window.location.href="page6.html";
 
 }
