@@ -577,3 +577,275 @@ button:active{
     }
 
 }
+/* ===========================
+   MOBILE SCREEN FIX
+=========================== */
+
+@media(max-width:600px){
+
+    .card{
+
+        width:95%;
+
+        padding:30px 18px;
+
+    }
+
+
+    h1{
+
+        font-size:27px;
+
+    }
+
+
+    h2{
+
+        font-size:21px;
+
+    }
+
+
+    p{
+
+        font-size:15px;
+
+    }
+
+
+    .character{
+
+        font-size:65px;
+
+    }
+
+
+    .cake{
+
+        font-size:75px;
+
+    }
+
+
+    .photo{
+
+        width:160px;
+
+        height:160px;
+
+    }
+
+}
+
+
+/* ===========================
+   BUTTON VISIBILITY FIX
+=========================== */
+
+.next-btn{
+
+    position:relative;
+
+    z-index:20;
+
+    display:inline-block;
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+button{
+
+    position:relative;
+
+    z-index:20;
+
+}
+
+
+/* ===========================
+   SPARKLE EFFECT
+=========================== */
+
+.sparkle{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 20px #ff69b4;
+
+    animation:sparkleMove 3s infinite;
+
+}
+
+
+@keyframes sparkleMove{
+
+    0%{
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+
+
+    50%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:translateY(-100px) scale(1);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ===========================
+   ROMANTIC GLOW TEXT
+=========================== */
+
+.glow-text{
+
+    animation:textGlow 2s infinite alternate;
+
+}
+
+
+@keyframes textGlow{
+
+    from{
+
+        text-shadow:
+        0 0 5px #ff69b4;
+
+    }
+
+
+    to{
+
+        text-shadow:
+        0 0 20px #ff1493,
+        0 0 40px #ff69b4;
+
+    }
+
+}
+
+
+/* ===========================
+   IMAGE MEMORY CARDS
+=========================== */
+
+.memory{
+
+    width:100%;
+
+    max-width:330px;
+
+    padding:15px;
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    margin:15px auto;
+
+    box-shadow:
+    0 0 20px rgba(255,105,180,.3);
+
+}
+
+
+.memory img{
+
+    width:100%;
+
+    border-radius:15px;
+
+}
+
+
+/* ===========================
+   FINAL SURPRISE BOX
+=========================== */
+
+.surprise{
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,105,180,.25),
+    rgba(181,108,255,.25)
+    );
+
+    animation:surprisePulse 3s infinite;
+
+}
+
+
+@keyframes surprisePulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+
+    50%{
+
+        transform:scale(1.03);
+
+    }
+
+}
+
+
+/* ===========================
+   HIDE SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+/* ===========================
+   PREVENT TEXT SELECTION
+=========================== */
+
+body{
+
+    user-select:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+   }
