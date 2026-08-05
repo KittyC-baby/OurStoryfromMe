@@ -1,0 +1,452 @@
+/* ==========================
+   GOOGLE RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+    background:#000;
+    font-family:'Poppins',sans-serif;
+    color:white;
+    height:100vh;
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background{
+
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-10;
+
+}
+
+/* ==========================
+   STARS
+========================== */
+
+.stars{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(#ff4d6d 1px, transparent 1px),
+    radial-gradient(#ffb6c1 1px, transparent 1px);
+
+    background-size:80px 80px;
+    background-position:0 0,40px 40px;
+
+    animation:twinkle 5s infinite alternate;
+
+    opacity:.45;
+
+}
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.2;
+
+    }
+
+    to{
+
+        opacity:.8;
+
+    }
+
+}
+
+/* ==========================
+   PETALS
+========================== */
+
+.petals{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+}
+
+.petals::before,
+.petals::after{
+
+    content:"🌸";
+    position:absolute;
+    font-size:28px;
+
+    animation:petalFall 12s linear infinite;
+
+}
+
+.petals::before{
+
+    left:20%;
+
+}
+
+.petals::after{
+
+    left:75%;
+    animation-delay:5s;
+
+}
+
+@keyframes petalFall{
+
+    from{
+
+        transform:translateY(-120px) rotate(0deg);
+
+    }
+
+    to{
+
+        transform:translateY(120vh) rotate(360deg);
+
+    }
+
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+}
+
+/* ==========================
+   TYPING
+========================== */
+
+.typing-box{
+
+    width:90%;
+    max-width:700px;
+
+    text-align:center;
+
+}
+
+#typing{
+
+    font-size:34px;
+    color:#ff8fab;
+
+    line-height:1.8;
+
+    font-weight:500;
+
+    min-height:260px;
+
+    text-shadow:
+    0 0 10px #ff4d6d,
+    0 0 20px #ff4d6d;
+
+}
+
+/* ==========================
+   SCRAPBOOK
+========================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+.scrapbook{
+
+    margin-top:40px;
+
+    width:260px;
+    height:360px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.scrapbook:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.05);
+
+}
+
+.cover{
+
+    width:100%;
+    height:100%;
+
+    background:#0b0b0b;
+
+    border:2px solid #ff4d6d;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 25px rgba(255,77,109,.6),
+    inset 0 0 25px rgba(255,182,193,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+/* ==========================
+   HEART
+========================== */
+
+.heart{
+
+    font-size:70px;
+
+    animation:heartbeat 1.4s infinite;
+
+}
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.cover h1{
+
+    margin-top:20px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#ff4d6d;
+
+    font-size:48px;
+
+}
+
+.cover p{
+
+    margin-top:10px;
+
+    color:#ffb6c1;
+
+}
+
+.click-text{
+
+    margin-top:45px;
+
+    color:#ff4d6d;
+
+    animation:blink 1.5s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:.35;
+
+    }
+
+}
+
+/* ==========================
+   SPARKLES
+========================== */
+
+.sparkles{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+}
+
+.sparkles span{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    background:#ff4d6d;
+
+    border-radius:50%;
+
+    animation:sparkle 3s infinite;
+
+}
+
+.sparkles span:nth-child(1){
+
+    top:15%;
+    left:20%;
+
+}
+
+.sparkles span:nth-child(2){
+
+    top:70%;
+    left:30%;
+
+}
+
+.sparkles span:nth-child(3){
+
+    top:35%;
+    left:80%;
+
+}
+
+.sparkles span:nth-child(4){
+
+    top:60%;
+    left:75%;
+
+}
+
+.sparkles span:nth-child(5){
+
+    top:18%;
+    left:60%;
+
+}
+
+.sparkles span:nth-child(6){
+
+    top:82%;
+    left:50%;
+
+}
+
+@keyframes sparkle{
+
+    0%{
+
+        transform:scale(.3);
+        opacity:.2;
+
+    }
+
+    50%{
+
+        transform:scale(1.6);
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.3);
+        opacity:.2;
+
+    }
+
+}
+
+/* ==========================
+   NOTE
+========================== */
+
+#hiddenNote{
+
+    position:absolute;
+
+    bottom:35px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#ffb6c1;
+
+    opacity:0;
+
+    transition:1s;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================
+   FADE
+========================== */
+
+#fade{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    background:black;
+
+    top:0;
+    left:0;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:1s;
+
+}
