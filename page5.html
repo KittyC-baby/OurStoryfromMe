@@ -4,135 +4,27 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>One Night, Just Us ❤️</title>
 
-<link rel="stylesheet" href="page5.css">
+<link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+<!-- Background -->
+
 <div class="background">
 
-<div class="moon"></div>
+    <div class="stars"></div>
 
-<div class="stars"></div>
+    <div class="moon"></div>
 
-<div class="petals"></div>
-
-</div>
-
-<div class="scene">
-
-<h1 id="title"></h1>
-
-<p id="subtitle"></p>
-
-<div id="rooftop" class="hidden">
-
-<div class="roof"></div>
-
-<!-- GOLDEN PUPPY -->
-
-<div id="dog" onclick="petDog()">
-
-<div class="dog-ear left"></div>
-
-<div class="dog-ear right"></div>
-
-<div class="dog-head">
-
-<div class="dog-eye left"></div>
-
-<div class="dog-eye right"></div>
-
-<div class="dog-nose"></div>
-
-<div class="dog-mouth"></div>
-
-<div class="dog-blush left"></div>
-
-<div class="dog-blush right"></div>
-
-</div>
-
-<div class="dog-body">
-
-<div class="collar"></div>
-
-</div>
-
-<div class="dog-tail"></div>
-
-</div>
-
-<!-- BLACK KITTEN -->
-
-<div id="cat" onclick="petCat()">
-
-<div class="cat-ear left"></div>
-
-<div class="cat-ear right"></div>
-
-<div class="cat-head">
-
-<div class="cat-eye left"></div>
-
-<div class="cat-eye right"></div>
-
-<div class="cat-nose"></div>
-
-<div class="cat-mouth"></div>
-
-<div class="cat-blush left"></div>
-
-<div class="cat-blush right"></div>
-
-</div>
-
-<div class="cat-body">
-
-<div class="pink-collar"></div>
-
-</div>
-
-<div class="cat-tail"></div>
-
-</div>
-<!-- Message Card -->
-
-<div id="messageCard" class="hidden">
-
-<h2>⭐ A Little Wish ⭐</h2>
-
-<p id="messageText">
-
-Tap the glowing stars one by one...
-
-Each one is hiding a little piece of my heart. ❤️
-
-</p>
-
-</div>
-
-<!-- Constellation Stars -->
-
-<div id="constellation">
-
-<div class="star s1" onclick="showStar(1)">⭐</div>
-
-<div class="star s2" onclick="showStar(2)">⭐</div>
-
-<div class="star s3" onclick="showStar(3)">⭐</div>
-
-<div class="star s4" onclick="showStar(4)">⭐</div>
-
-<div class="star s5" onclick="showStar(5)">⭐</div>
+    <div class="petals"></div>
 
 </div>
 
@@ -140,39 +32,117 @@ Each one is hiding a little piece of my heart. ❤️
 
 <div id="heartContainer"></div>
 
-<!-- Final Message -->
+<!-- Main Scene -->
 
-<div id="finalMessage" class="hidden">
+<div class="scene">
 
-<h1>🏡 Home ❤️</h1>
+    <h1 id="title">One Night, Just Us 🌸🌙</h1>
 
-<p>
+    <p id="subtitle">
+        Even ordinary nights become magical...
+        <br>
+        Because you're beside me. ❤️
+    </p>
 
-Home isn't a place anymore...
+    <!-- Rooftop -->
 
-<br><br>
+    <div id="rooftop">
 
-It's wherever you are.
+        <div class="roof"></div>
 
-<br><br>
+        <!-- Puppy -->
 
-Thank you for walking into my life.
+        <div id="dog">
 
-🐶🩷🐱
+            <img src="dog1.png" alt="Golden Puppy">
 
-</p>
+        </div>
 
-<button onclick="nextPage()" class="continueBtn">
+        <!-- Kitten -->
 
-Continue Our Story ➜
+        <div id="cat">
 
-</button>
+            <img src="cat1.png" alt="Black Kitten">
+
+        </div>
+
+    </div>
+
+    <!-- Stars -->
+
+    <div id="constellation">
+
+        <span class="star s1">⭐</span>
+
+        <span class="star s2">✨</span>
+
+        <span class="star s3">⭐</span>
+
+        <span class="star s4">✨</span>
+
+        <span class="star s5">⭐</span>
+
+    </div>
+
+    <!-- Message -->
+
+    <div id="messageCard">
+
+        <h2>💌 Our Little Rooftop</h2>
+
+        <p id="messageText">
+
+            Every star reminds me of one little memory.
+
+            <br><br>
+
+            Click the puppy and kitten...
+
+            <br>
+
+            They have something to tell you. ❤️
+
+        </p>
+
+    </div>
+
+    <!-- Final Message -->
+
+    <div id="finalMessage" class="hidden">
+
+        <h1>Forever Begins With You ❤️</h1>
+
+        <p>
+
+            Under this quiet sky...
+
+            <br><br>
+
+            I don't wish for thousands of stars.
+
+            <br><br>
+
+            I only wish that every night...
+
+            <br>
+
+            I can keep looking at them beside you.
+
+            🌙✨
+
+        </p>
+
+        <button class="continueBtn" onclick="nextPage()">
+
+            ❤️ Continue ❤️
+
+        </button>
+
+    </div>
 
 </div>
 
-</div>
-
-<script src="page5.js"></script>
+<script src="script.js"></script>
 
 </body>
 
