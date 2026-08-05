@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Night, Just Us ❤️</title>
+
+<link rel="stylesheet" href="page5.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="background">
+
+    <div class="stars-bg"></div>
+
+    <div class="moon"></div>
+
+</div>
+
+<!-- Intro -->
+
+<div id="intro">
+
+    <h1 id="title"></h1>
+
+    <p id="subtitle"></p>
+
+</div>
+
+<!-- Rooftop Scene -->
+
+<div id="rooftop" class="hidden">
+
+    <!-- Roof -->
+
+    <div class="roof"></div>
+
+    <!-- Clickable Stars -->
+
+    <div class="star s1" onclick="showWish(1)">⭐</div>
+
+    <div class="star s2" onclick="showWish(2)">⭐</div>
+
+    <div class="star s3" onclick="showWish(3)">⭐</div>
+
+    <div class="star s4" onclick="showWish(4)">⭐</div>
+
+    <div class="star s5" onclick="showWish(5)">⭐</div>
+
+    <div class="star s6" onclick="showWish(6)">⭐</div>
+
+    <div class="star s7" onclick="showWish(7)">⭐</div>
+
+    <!-- Secret Star -->
+
+    <div class="star secretStar" onclick="secretWish()">🌟</div>
+
+    <!-- Dog (Her) -->
+
+    <div id="dog" onclick="touchDog()">
+
+        <img src="dog.png" alt="Black Dog">
+
+    </div>
+
+    <!-- Cat (You) -->
+
+    <div id="cat" onclick="touchCat()">
+
+        <img src="cat.png" alt="Black Cat">
+
+    </div>
+
+    <!-- Floating Hearts -->
+
+    <div id="heartArea"></div>
+
+    <!-- Wish Popup -->
+
+    <div id="wishBox">
+
+        <h2 id="wishTitle"></h2>
+
+        <p id="wishText"></p>
+
+    </div>
+        <!-- Continue Button -->
+
+    <div id="continueArea">
+
+        <button id="continueBtn" onclick="nextPage()">
+            Continue Our Story ➜
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Floating Hearts -->
+
+<div id="floatingHearts"></div>
+
+<!-- Shooting Star -->
+
+<div id="shootingStar"></div>
+
+<script src="page5.js"></script>
+
+</body>
+
+</html>
