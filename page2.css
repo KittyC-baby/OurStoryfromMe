@@ -261,6 +261,7 @@ body{
     padding:35px;
 
     overflow-y:auto;
+    scroll-behavior:smooth;
 
     box-shadow:
     0 0 35px rgba(255,77,109,.4);
