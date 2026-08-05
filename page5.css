@@ -11,8 +11,8 @@
 body{
     font-family:'Poppins',sans-serif;
     background:#050510;
-    overflow:hidden;
     color:white;
+    overflow:hidden;
 }
 
 /* ==========================================
@@ -22,10 +22,8 @@ body{
 .background{
     position:fixed;
     inset:0;
-    overflow:hidden;
-    z-index:-5;
-    background:
-    linear-gradient(to bottom,#07071c,#140824,#1b0c30);
+    z-index:-10;
+    background:linear-gradient(to bottom,#07071c,#12061f,#1c0d30);
 }
 
 /* ==========================================
@@ -34,15 +32,15 @@ body{
 
 .moon{
     position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:#fff6cf;
     top:60px;
-    right:12%;
+    right:10%;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:#fff9d8;
     box-shadow:
-    0 0 40px #fff6cf,
-    0 0 100px rgba(255,255,220,.8);
+        0 0 40px #fff8d0,
+        0 0 90px rgba(255,255,220,.7);
 }
 
 /* ==========================================
@@ -52,21 +50,23 @@ body{
 .stars{
     position:absolute;
     inset:0;
+
     background-image:
-    radial-gradient(#ffffff 1px,transparent 1px),
-    radial-gradient(#ffb6d5 1px,transparent 1px);
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#ffd5eb 1px,transparent 1px);
 
-    background-size:70px 70px;
-    background-position:0 0,35px 35px;
+    background-size:130px 130px;
+    background-position:0 0,65px 65px;
 
-    animation:twinkle 5s infinite alternate;
-    opacity:.7;
+    opacity:.8;
+
+    animation:twinkle 6s infinite alternate;
 }
 
 @keyframes twinkle{
 
     from{
-        opacity:.35;
+        opacity:.4;
     }
 
     to{
@@ -76,78 +76,94 @@ body{
 }
 
 /* ==========================================
-   PETALS
+   FALLING PETALS
 ========================================== */
 
 .petals::before,
 .petals::after{
 
     content:"🌸";
+
     position:absolute;
-    font-size:28px;
-    animation:fall 14s linear infinite;
+
+    font-size:30px;
+
+    animation:petalFall 14s linear infinite;
+
 }
 
 .petals::before{
-    left:18%;
+    left:20%;
 }
 
 .petals::after{
-    left:75%;
+    left:72%;
     animation-delay:7s;
 }
 
-@keyframes fall{
+@keyframes petalFall{
 
     from{
-        transform:
-        translateY(-120px)
-        rotate(0deg);
+        transform:translateY(-100px) rotate(0deg);
     }
 
     to{
-        transform:
-        translateY(120vh)
-        rotate(360deg);
+        transform:translateY(120vh) rotate(360deg);
     }
 
 }
 
 /* ==========================================
-   MAIN SCENE
+   SCENE
 ========================================== */
 
 .scene{
+
+    position:relative;
+
     width:100%;
     height:100vh;
 
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
 
     text-align:center;
 
     padding:20px;
+
+    z-index:20;
+
 }
 
 #title{
+
     font-family:'Caveat',cursive;
-    font-size:58px;
-    color:#ffd4ea;
+
+    font-size:60px;
+
+    color:#ffd8ea;
+
+    text-shadow:0 0 15px #ff8fb8;
+
 }
 
 #subtitle{
-    margin-top:15px;
-    color:#ffe6ef;
+
+    margin-top:18px;
+
     font-size:20px;
+
+    color:#fff0f5;
+
     max-width:650px;
+
     line-height:1.8;
+
 }
 
-.hidden{
-    display:none;
-}
 /* ==========================================
    ROOFTOP
 ========================================== */
@@ -162,7 +178,7 @@ body{
 
     height:420px;
 
-    margin-top:50px;
+    margin-top:40px;
 
 }
 
@@ -178,733 +194,86 @@ body{
 
     width:100%;
 
-    height:180px;
+    height:170px;
 
-    background:#232323;
+    background:#2d2d38;
 
-    clip-path:polygon(0 100%,100% 100%,80% 0,20% 0);
-
-    box-shadow:
-    0 -10px 35px rgba(255,255,255,.05);
+    clip-path:polygon(0 100%,100% 100%,82% 0,18% 0);
 
 }
 
 /* ==========================================
-   GOLDEN PUPPY
+   PETS
 ========================================== */
 
-#dog{
+#dog,
+#cat{
 
     position:absolute;
 
-    bottom:95px;
+    bottom:100px;
 
-    left:48%;
-
-    transform:translateX(-120px);
-
-    width:120px;
-
-    height:150px;
+    width:160px;
 
     cursor:pointer;
 
-    transition:.35s;
+    animation:floatPet 3s ease-in-out infinite;
+
+    transition:.3s;
+
+    z-index:20;
+
+}
+
+#dog{
+
+    left:50%;
+
+    transform:translateX(-180px);
+
+}
+
+#cat{
+
+    left:50%;
+
+    transform:translateX(20px);
+
+}
+
+#dog img,
+#cat img{
+
+    width:100%;
+
+    display:block;
 
 }
 
 #dog:hover{
 
-    transform:
-    translateX(-120px)
-    scale(1.08);
-
-}
-
-.dog-head{
-
-    position:absolute;
-
-    top:0;
-
-    left:20px;
-
-    width:80px;
-
-    height:80px;
-
-    background:#f6c76a;
-
-    border-radius:50%;
-
-}
-
-.dog-ear{
-
-    position:absolute;
-
-    width:26px;
-
-    height:42px;
-
-    background:#dca046;
-
-    border-radius:50%;
-
-    top:-10px;
-
-}
-
-.dog-ear.left{
-
-    left:18px;
-
-    transform:rotate(-25deg);
-
-}
-
-.dog-ear.right{
-
-    right:18px;
-
-    transform:rotate(25deg);
-
-}
-
-.dog-eye{
-
-    position:absolute;
-
-    width:8px;
-
-    height:8px;
-
-    background:#222;
-
-    border-radius:50%;
-
-    top:28px;
-
-}
-
-.dog-eye.left{
-
-    left:22px;
-
-}
-
-.dog-eye.right{
-
-    right:22px;
-
-}
-
-.dog-nose{
-
-    position:absolute;
-
-    width:12px;
-
-    height:9px;
-
-    background:#222;
-
-    border-radius:50%;
-
-    left:34px;
-
-    top:43px;
-
-}
-
-.dog-mouth{
-
-    position:absolute;
-
-    width:20px;
-
-    height:10px;
-
-    border-bottom:2px solid #333;
-
-    border-radius:50%;
-
-    left:30px;
-
-    top:50px;
-
-}
-
-.dog-blush{
-
-    position:absolute;
-
-    width:12px;
-
-    height:12px;
-
-    background:#ff9fb4;
-
-    opacity:.6;
-
-    border-radius:50%;
-
-    top:43px;
-
-}
-
-.dog-blush.left{
-
-    left:12px;
-
-}
-
-.dog-blush.right{
-
-    right:12px;
-
-}
-
-.dog-body{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:25px;
-
-    width:70px;
-
-    height:75px;
-
-    background:#f6c76a;
-
-    border-radius:35px;
-
-}
-
-.collar{
-
-    position:absolute;
-
-    top:10px;
-
-    width:100%;
-
-    height:8px;
-
-    background:#111;
-
-    border-radius:10px;
-
-}
-
-.dog-tail{
-
-    position:absolute;
-
-    right:6px;
-
-    bottom:28px;
-
-    width:30px;
-
-    height:8px;
-
-    background:#f6c76a;
-
-    border-radius:20px;
-
-    transform:rotate(-35deg);
-
-    transform-origin:left center;
-
-    animation:wag 1s infinite;
-
-}
-
-@keyframes wag{
-
-    0%{
-
-        transform:rotate(-35deg);
-
-    }
-
-    50%{
-
-        transform:rotate(15deg);
-
-    }
-
-    100%{
-
-        transform:rotate(-35deg);
-
-    }
-
-}
-
-/* ==========================================
-   BLACK KITTEN
-========================================== */
-
-#cat{
-
-    position:absolute;
-
-    bottom:95px;
-
-    left:52%;
-
-    width:110px;
-
-    height:145px;
-
-    cursor:pointer;
-
-    transition:.35s;
+    transform:translateX(-180px) scale(1.08);
 
 }
 
 #cat:hover{
 
-    transform:scale(1.08);
+    transform:translateX(20px) scale(1.08);
 
 }
 
-.cat-head{
+@keyframes floatPet{
 
-    position:absolute;
-
-    top:0;
-
-    left:18px;
-
-    width:74px;
-
-    height:74px;
-
-    background:#111;
-
-    border-radius:50%;
-
-}
-
-.cat-ear{
-
-    position:absolute;
-
-    width:22px;
-
-    height:22px;
-
-    background:#111;
-
-    clip-path:polygon(50% 0,0 100%,100% 100%);
-
-    top:-8px;
-
-}
-
-.cat-ear.left{
-
-    left:20px;
-
-}
-
-.cat-ear.right{
-
-    right:20px;
-
-       }
-/* ==========================================
-   FINISH THE CAT
-========================================== */
-
-.cat-nose{
-
-    position:absolute;
-
-    width:10px;
-    height:8px;
-
-    background:#ff8fab;
-
-    border-radius:50%;
-
-    left:32px;
-    top:40px;
-
-}
-
-.cat-mouth{
-
-    position:absolute;
-
-    width:18px;
-    height:10px;
-
-    border-bottom:2px solid #fff;
-
-    border-radius:50%;
-
-    left:28px;
-    top:48px;
-
-}
-
-.cat-blush{
-
-    position:absolute;
-
-    width:10px;
-    height:10px;
-
-    background:#ff9fb4;
-
-    opacity:.6;
-
-    border-radius:50%;
-
-    top:42px;
-
-}
-
-.cat-blush.left{
-
-    left:12px;
-
-}
-
-.cat-blush.right{
-
-    right:12px;
-
-}
-
-.cat-body{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:22px;
-
-    width:68px;
-
-    height:74px;
-
-    background:#111;
-
-    border-radius:34px;
-
-}
-
-.pink-collar{
-
-    position:absolute;
-
-    top:10px;
-
-    width:100%;
-    height:8px;
-
-    background:#ff6fa8;
-
-    border-radius:10px;
-
-}
-
-.cat-tail{
-
-    position:absolute;
-
-    left:-8px;
-
-    bottom:28px;
-
-    width:34px;
-    height:8px;
-
-    background:#111;
-
-    border-radius:20px;
-
-    transform:rotate(35deg);
-
-}
-
-/* ==========================================
-   CONSTELLATION
-========================================== */
-
-#constellation{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-}
-
-.star{
-
-    position:absolute;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    pointer-events:auto;
-
-    animation:glow 2s infinite alternate;
-
-}
-
-.s1{top:12%;left:22%;}
-.s2{top:20%;right:20%;}
-.s3{top:34%;left:14%;}
-.s4{top:40%;right:15%;}
-.s5{top:18%;left:50%;}
-
-@keyframes glow{
-
-    from{
-
-        transform:scale(1);
-
-        filter:drop-shadow(0 0 6px gold);
-
-    }
-
-    to{
-
-        transform:scale(1.2);
-
-        filter:drop-shadow(0 0 20px gold);
-
-    }
-
-}
-
-/* ==========================================
-   MESSAGE CARD
-========================================== */
-
-#messageCard{
-
-    margin-top:30px;
-
-    width:min(90%,520px);
-
-    background:rgba(255,255,255,.08);
-
-    border:2px solid #ff8fab;
-
-    border-radius:22px;
-
-    padding:25px;
-
-    backdrop-filter:blur(8px);
-
-}
-
-#messageCard h2{
-
-    color:#ffd4e8;
-
-    margin-bottom:12px;
-
-}
-
-#messageText{
-
-    line-height:1.8;
-
-    color:#fff0f6;
-
-}
-
-/* ==========================================
-   HEARTS
-========================================== */
-
-#heartContainer{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-
-}
-
-.heart{
-
-    position:absolute;
-
-    color:#ff4d6d;
-
-    font-size:24px;
-
-    animation:floatHeart 3s linear forwards;
-
-}
-
-@keyframes floatHeart{
-
-    from{
-
-        transform:translateY(0);
-
-        opacity:1;
-
-    }
-
-    to{
-
-        transform:translateY(-220px);
-
-        opacity:0;
-
-    }
-
-}
-
-/* ==========================================
-   FINAL MESSAGE
-========================================== */
-
-#finalMessage{
-
-    margin-top:40px;
-
-    text-align:center;
-
-    animation:fadeIn 1.2s ease;
-
-}
-
-#finalMessage h1{
-
-    font-family:'Caveat',cursive;
-
-    font-size:58px;
-
-    color:#ffd4ea;
-
-}
-
-#finalMessage p{
-
-    margin:20px auto;
-
-    max-width:650px;
-
-    line-height:2;
-
-    color:#ffe6ef;
-
-    font-size:20px;
-
-}
-
-.continueBtn{
-
-    margin-top:25px;
-
-    padding:18px 48px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:linear-gradient(135deg,#ff4d6d,#ff8fab);
-
-    color:white;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.continueBtn:hover{
-
-    transform:scale(1.08);
-
-    box-shadow:0 0 25px rgba(255,77,109,.6);
-
-}
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
+    0%,100%{
 
         transform:translateY(0);
 
     }
 
-}
+    50%{
 
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media(max-width:768px){
-
-    .moon{
-
-        width:120px;
-        height:120px;
-
-        right:8%;
-    }
-
-    #title{
-
-        font-size:42px;
+        transform:translateY(-10px);
 
     }
 
-    #subtitle{
-
-        font-size:17px;
-
-    }
-
-    #dog{
-
-        transform:translateX(-95px) scale(.9);
-
-    }
-
-    #cat{
-
-        transform:scale(.9);
-
-    }
-
-    .star{
-
-        font-size:22px;
-
-    }
-
-}
+   }
